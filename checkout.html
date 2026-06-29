@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checkout | Local Store</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+🛒 Local Store
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="products.html">Products</a>
+
+<a href="about.html">About Us</a>
+
+<a href="contact.html">Contact</a>
+
+<a href="login.html">Login</a>
+
+<a href="cart.html">
+Cart (<span id="cartCount">0</span>)
+</a>
+
+</nav>
+
+</header>
+
+<section class="page-title">
+
+<h1>Checkout</h1>
+
+<p>Complete your order details.</p>
+
+</section>
+
+<div class="checkout-container">
+
+<form id="checkoutForm">
+
+<input
+type="text"
+id="customerName"
+placeholder="Full Name"
+required>
+
+<input
+type="email"
+id="customerEmail"
+placeholder="Email Address"
+required>
+
+<input
+type="tel"
+id="customerPhone"
+placeholder="Phone Number"
+required>
+
+<textarea
+id="customerAddress"
+placeholder="Delivery Address"
+required></textarea>
+
+<select id="paymentMethod" required>
+
+<option value="">Select Payment Method</option>
+
+<option>Cash on Delivery</option>
+
+<option>UPI</option>
+
+<option>Credit Card</option>
+
+<option>Debit Card</option>
+
+<option>Net Banking</option>
+
+</select>
+
+<button type="submit">
+
+Place Order
+
+</button>
+
+</form>
+
+</div>
+
+<footer>
+
+<div>
+
+<h2>Local Store</h2>
+
+<p>Supporting Local Farmers & Small Businesses</p>
+
+</div>
+
+<div>
+
+<h3>Quick Links</h3>
+
+<a href="index.html">Home</a>
+<a href="products.html">Products</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact</a>
+
+</div>
+
+<div>
+
+<h3>Contact</h3>
+
+<p>📧 localstore@gmail.com</p>
+
+<p>📞 +91 9876543210</p>
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+
+document.getElementById("checkoutForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let name=document.getElementById("customerName").value;
+let email=document.getElementById("customerEmail").value;
+let phone=document.getElementById("customerPhone").value;
+let address=document.getElementById("customerAddress").value;
+let payment=document.getElementById("paymentMethod").value;
+
+if(name=="" || email=="" || phone=="" || address=="" || payment==""){
+
+alert("Please fill all fields.");
+
+return;
+
+}
+
+alert("🎉 Order Placed Successfully!");
+
+localStorage.removeItem("cart");
+
+window.location.href="order-success.html";
+
+});
+
+window.onload=function(){
+
+updateCartCount();
+
+};
+
+</script>
+
+</body>
+</html>

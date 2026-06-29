@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Local Store</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+
+    <div class="logo">
+        🛒 Local Store
+    </div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html" class="active">Login</a>
+        <a href="cart.html">
+            Cart (<span id="cartCount">0</span>)
+        </a>
+
+    </nav>
+
+</header>
+
+<section class="page-title">
+
+    <h1>Login</h1>
+
+    <p>Welcome Back!</p>
+
+</section>
+
+<div class="form-container">
+
+    <h2>User Login</h2>
+
+    <form id="loginForm">
+
+        <input
+            type="email"
+            id="loginEmail"
+            placeholder="Enter Email"
+            required>
+
+        <input
+            type="password"
+            id="loginPassword"
+            placeholder="Enter Password"
+            required>
+
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+    <p>
+
+        Don't have an account?
+
+        <a href="register.html">
+
+            Register Here
+
+        </a>
+
+    </p>
+
+</div>
+
+<footer>
+
+<div>
+
+<h2>Local Store</h2>
+
+<p>
+
+Supporting Local Farmers & Small Businesses
+
+</p>
+
+</div>
+
+<div>
+
+<h3>Quick Links</h3>
+
+<a href="index.html">Home</a>
+<a href="products.html">Products</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact</a>
+
+</div>
+
+<div>
+
+<h3>Contact</h3>
+
+<p>📧 localstore@gmail.com</p>
+
+<p>📞 +91 9876543210</p>
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+
+document.getElementById("loginForm").addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    let email=document.getElementById("loginEmail").value;
+
+    let password=document.getElementById("loginPassword").value;
+
+    if(email=="" || password==""){
+
+        alert("Please enter email and password");
+
+        return;
+
+    }
+
+    localStorage.setItem("user",email);
+
+    alert("Login Successful!");
+
+    window.location.href="index.html";
+
+});
+
+</script>
+
+</body>
+</html>
